@@ -1,10 +1,12 @@
 import './App.css';
+import formsPokedex from './components/forms/forms';
+import mains from './components/main/mains'
 
 function App() {
   return (
-    <main>
-      <pokedexImage/>
-    </main>
+    <mains>
+      <formsPokedex></formsPokedex>
+    </mains>
   );
 }
 

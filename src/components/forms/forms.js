@@ -1,4 +1,5 @@
 import pokedex from './pokedex.png';
+import React from 'react';
 
 //Intial instructions
 const pokemonName = document.querySelector('.pokemon_name');
@@ -9,9 +10,6 @@ const pokemonImage = document.querySelector('.pokemon_image');
 const formResult = document.querySelector('.form');
 const inputResult = document.querySelector('.input_search');
 
-//Buttons
-const buttonPrev = document.querySelector('.btn-prev');
-const buttonNext = document.querySelector('.btn-next');
 
 //Initial pokemon
 let searchPokemon = 1;
@@ -53,25 +51,24 @@ formResult.addEventListener('submit', (event) => {
 });
 
 //Previous button
-buttonPrev.addEventListener('click', (event) => {
+function buttonPrev () {
     if(searchPokemon > 1){
         searchPokemon -= 1;
         renderPokemon(searchPokemon);
     } else{
         searchPokemon = 649;
     }
-});
+}
+
 //Next button
-buttonNext.addEventListener('click', (event) => {
+function buttonNext() {
     if(searchPokemon < 649){
         searchPokemon =+ searchPokemon + 1;
         renderPokemon(searchPokemon);
     } else{
         searchPokemon = 1;
     }
-});
-//Uptadet By @Henriiquerick
-
+};
 
 const formsPokedex = () => {
     return (
@@ -92,8 +89,8 @@ const formsPokedex = () => {
             />
         </form>
         <div class='buttons'>
-            <button class="button btn-prev">Prev &lt;</button>
-            <button class="button btn-next">Next &gt;</button>
+            <button class="button btn-prev" onClick={buttonPrev()}>Prev &lt;</button>
+            <button class="button btn-next" onClick={buttonNext()}>Next &gt;</button>
         </div>
         <img src="./images/pokedex.png" class="pokedex"/>
         </form>
@@ -104,3 +101,4 @@ const formsPokedex = () => {
 
 
 export default formsPokedex;
+//Uptadet By @Henriiquerick
